@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Python Project"
+  short_description: "Bootstrap Python packages with UV or mini-conda"
+  default_prompt: "Use $bootstrap-python-project to generate a ready-to-run greenfield Python package scaffold with UV by default or mini-conda for data science and ML projects."

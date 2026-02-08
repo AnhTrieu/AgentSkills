@@ -1,0 +1,4 @@
+interface:
+  display_name: "Notion Enhanced Markdown"
+  short_description: "Generate Notion Enhanced Markdown docs"
+  default_prompt: "Use $notion-enhanced-markdown to draft Notion page content in Notion-flavored Enhanced Markdown."
