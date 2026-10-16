@@ -1,0 +1,23 @@
+# Project instructions
+
+{{ project.description }}
+
+## Working agreements
+
+- Follow the design decisions in docs/bootstrap-decisions.md; report contradictions with the PRD/SDD.
+- Preserve existing user changes. Keep changes within the requested scope.
+- Prefer the selected stack templates. Record requirement-backed exceptions in .bootstrap/project.json.
+- Do not hand-edit bootstrap-owned regions without reconciling their manifest and source templates.
+- Add meaningful behavior tests for new behavior; do not replace failing checks with placeholders.
+- Keep credentials and machine-local state out of source control.
+
+## Components and commands
+{% for c in components %}
+### {{ c.id }} — {{ c.path }}
+{% for key,cmd in c.commands.items() if key not in ['ci_install','lock','format_fix'] %}
+- {{ key }}: `{{ cmd.argv | shell }}`
+{% endfor %}
+{% endfor %}
+
+Run the applicable lint, typecheck, tests, and build commands before declaring implementation complete.
+Configuration generation alone does not establish passing checks or remote CI.

@@ -1,0 +1,25 @@
+# {{ project.name }}
+
+{{ project.description }}
+
+This repository contains the development scaffold. Product features are implemented separately.
+
+## Development
+{% for c in components %}
+### {{ c.id }} ({{ c.profile }})
+
+Working directory: {{ c.path }}. Runtime: {{ c.runtime_label }}. Manager: {{ c.package_manager }}.
+
+{% for key,cmd in c.commands.items() if key not in ['ci_install','lock','format_fix'] %}
+- **{{ key }}:** `{{ cmd.argv | shell }}`
+{% endfor %}
+{% endfor %}
+
+## Project guidance
+
+Read AGENTS.md and docs/bootstrap-decisions.md. Configuration files use workspace-relative paths.
+{% for s in sources %}
+- [{{ s.kind | upper }}]({{ s.path }})
+{% endfor %}
+
+Dependency installation may require registry access. Keep the generated lockfiles in Git.

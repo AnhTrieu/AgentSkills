@@ -1,0 +1,20 @@
+[project]
+name = "bootstrap-project-skill"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["Jinja2==3.1.6", "jsonschema==4.26.0", "PyYAML==6.0.3"]
+
+[tool.uv]
+package = false
+constraint-dependencies = [
+  "MarkupSafe==3.0.3", "attrs==26.1.0",
+  "jsonschema-specifications==2025.9.1", "referencing==0.37.0",
+  "rpds-py==0.30.0", "typing_extensions==4.15.0",
+]
+
+[tool.ruff]
+line-length = 100
+
+
+# Tested helper dependency set. A normal uv sync resolves these registry versions.
+# No synthetic registry hashes or machine-specific archive paths are embedded.

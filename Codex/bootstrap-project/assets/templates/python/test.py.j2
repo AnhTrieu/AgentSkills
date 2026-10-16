@@ -1,0 +1,25 @@
+{% if c.profile == 'python.fastapi' %}from fastapi.testclient import TestClient
+from {{ c.import_name }}.api import app
+
+
+def test_health():
+    response = TestClient(app).get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+{% elif c.profile == 'python.cli' %}import subprocess
+import sys
+
+
+def test_cli():
+    result = subprocess.run(
+        [sys.executable, "-m", "{{ c.import_name }}.cli", "--name", "Ada"],
+        capture_output=True, text=True, check=True,
+    )
+    assert result.stdout.strip() == "Hello, Ada!"
+{% else %}from {{ c.import_name }}.core import normalize_name
+
+
+def test_normalize_name():
+    assert normalize_name("  Ada   Lovelace  ") == "Ada Lovelace"
+    assert normalize_name("") == ""
+{% endif %}

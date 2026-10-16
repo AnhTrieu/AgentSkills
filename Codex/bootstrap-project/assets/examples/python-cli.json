@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "project": {"name": "example-cli", "description": "A command-line utility described by the project brief.", "mode": "init"},
+  "components": [{"id": "cli", "path": ".", "language": "python", "profile": "python.cli", "package_manager": "uv", "python_version": "3.12"}],
+  "decisions": [{"choice": "Python CLI", "reason": "The brief requires a local command-line entry point.", "source": "User project brief", "inferred": false}],
+  "remote": {"mode": "none"},
+  "infrastructure": {"enabled": false}
+}

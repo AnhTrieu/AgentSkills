@@ -1,0 +1,25 @@
+[project]
+name = {{ c.name | json }}
+version = "0.1.0"
+description = {{ project.description | json }}
+requires-python = ">={{ c.python_version }}"
+dependencies = {{ c.runtime_deps | json }}
+{% if c.profile == 'python.cli' %}
+[project.scripts]
+{{ c.name | json }} = "{{ c.import_name }}.cli:main"
+{% endif %}
+[dependency-groups]
+dev = {{ c.dev_deps | json }}
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{ c.import_name }}"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

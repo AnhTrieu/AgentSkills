@@ -1,0 +1,13 @@
+{% if c.profile == 'node.express' %}import express from 'express';
+export function createApp() {
+  const app = express();
+  app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+  return app;
+}
+{% else %}import Fastify from 'fastify';
+export function createApp() {
+  const app = Fastify();
+  app.get('/health', async () => ({ status: 'ok' }));
+  return app;
+}
+{% endif %}

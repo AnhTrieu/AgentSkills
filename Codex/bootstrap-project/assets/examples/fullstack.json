@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project": {"name": "example-service", "description": "An API and browser client with independent development environments.", "mode": "init", "layout": "multi_component"},
+  "components": [
+    {"id": "api", "path": "apps/api", "language": "python", "profile": "python.fastapi", "package_manager": "uv"},
+    {"id": "web", "path": "apps/web", "language": "typescript", "profile": "web.react-vite", "package_manager": "pnpm"}
+  ],
+  "editor": {"layout": "multi_root"},
+  "remote": {"mode": "none"},
+  "infrastructure": {"enabled": false},
+  "decisions": [{"choice": "Independent API and web components", "reason": "The requested interfaces need separate runtimes and commands.", "source": "User project brief", "inferred": false}]
+}

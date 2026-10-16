@@ -1,0 +1,19 @@
+# Bootstrap decisions
+
+{{ project.description }}
+
+{% for d in decisions %}
+- **{{ d.choice }}:** {{ d.reason }} Source: {{ d.source }}. Inferred: {{ d.get('inferred', false) }}.
+{% endfor %}
+
+## Selected profiles
+{% for c in components %}
+- {{ c.id }}: {{ c.profile }}; {{ c.package_manager }}; {{ c.path }}.
+{% endfor %}
+
+## Requirements and deviations
+{% for d in deviations %}
+- **{{ d.id }}:** {{ d.requirement }} — {{ d.reason }}. Verify: {{ d.validation }}.
+{% else %}
+No custom template deviations.
+{% endfor %}

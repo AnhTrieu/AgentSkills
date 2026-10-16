@@ -1,0 +1,13 @@
+import js from '@eslint/js';
+import globals from 'globals';
+{% if c.profile.startswith('web.') %}import react from 'eslint-plugin-react';
+{% endif %}{% if ts %}import tseslint from 'typescript-eslint';
+{% endif %}export default [
+  { ignores: ['dist/**', '.next/**', 'node_modules/**', 'next-env.d.ts'] },
+  js.configs.recommended,
+{% if ts %}  ...tseslint.configs.recommended,
+{% endif %}{% if c.profile.startswith('web.') %}  { plugins: { react }, rules: { 'react/jsx-uses-vars': 'error' } },
+{% endif %}  { files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'], languageOptions: {
+    globals: { ...globals.node, ...globals.browser }, parserOptions: { ecmaFeatures: { jsx: true } }
+  } },
+];

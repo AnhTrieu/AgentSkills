@@ -1,0 +1,28 @@
+{
+  "skill_name": "bootstrap-project",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've got a folder of scripts for syncing CSV exports into our database. Turn it into a real Python project: structure, deps, Git and CI. Keep behavior intact and do not connect to a live database.",
+      "files": ["fixtures/messy-data-script"],
+      "expectations": ["Read the README and source before selecting layout", "Separate pandas/sqlalchemy runtime dependencies from pytest development dependencies", "Choose adoption or an explicit reviewed reorganization; no automatic blanket moves", "Run a meaningful test without contacting the database", "Preserve README content and include useful commands", "Initialize and commit only after checks if no repository exists; no remote mutation", "No unconditional extra approval gate for ordinary ignore-file generation"]
+    },
+    {
+      "id": 2,
+      "prompt": "This is a FastAPI prototype; there's a design doc in docs. Bootstrap it properly while keeping the existing Git history. Prepare local development and CI without deploying.",
+      "files": ["fixtures/documented-api-service"],
+      "fixture_setup": "Copy fixture to a temporary root; initialize a local repository and create an Initial rough prototype commit with the test environment's configured identity. Never modify global Git identity.",
+      "expectations": ["Read docs/design_spec.md", "Preserve app layout and pip pins as explicitly required", "Keep httpx/pytest as development dependencies because only tests use them", "Preserve exploration.ipynb and existing Git history", "Generate pip-compatible CI, not uv-only commands", "No deployment or remote creation", "Report real checks and any unavailable network dependencies honestly"]
+    },
+    {
+      "id": 3,
+      "prompt": "Use the PRD and SDD to scaffold a Python FastAPI API and TypeScript React SPA with separate environments, multi-root VS Code, GitHub CI, and all three agent harnesses. Files only; no remote or infrastructure.",
+      "expectations": ["Use python.fastapi and web.react-vite when the SDD requires them", "Choose separate component roots", "Render scoped working directories and Python interpreter settings", "Include real harness discovery files and Claude imports", "Report partial files-only result", "Repeat planning produces zero operations"]
+    },
+    {
+      "id": 4,
+      "prompt": "Adopt this dependency-free JavaScript ESM utility. Preserve README notes, existing four-space editor settings, and source paths. Prepare agent development, run node:test, and keep Git/CI/remotes disabled.",
+      "expectations": ["Use existing profile without converting to TypeScript", "Preserve existing settings and source", "Document a compatibility overlay only where needed", "Include README source provenance", "Standalone verification passes without refreshing the ingested README hash", "Repeat planning produces zero operations"]
+    }
+  ]
+}

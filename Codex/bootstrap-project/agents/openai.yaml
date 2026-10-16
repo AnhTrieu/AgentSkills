@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Project"
+  short_description: "Template-first project and agent workspace setup"
+  default_prompt: "Use $bootstrap-project to prepare this repository from its PRD or SDD."

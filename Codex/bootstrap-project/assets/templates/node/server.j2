@@ -1,0 +1,5 @@
+import { createApp } from './app.js';
+const app = createApp();
+{% if c.profile == 'node.express' %}app.listen(Number(process.env.PORT || 3000), '127.0.0.1');
+{% else %}await app.listen({ port: Number(process.env.PORT || 3000), host: '127.0.0.1' });
+{% endif %}

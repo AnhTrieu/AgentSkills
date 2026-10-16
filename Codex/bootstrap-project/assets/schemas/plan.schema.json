@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "root",
+    "manifest",
+    "model",
+    "operations",
+    "conflicts",
+    "inputs",
+    "git_before",
+    "commands",
+    "template_digest",
+    "managed_outputs",
+    "digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "root": {
+      "type": "string"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "model": {
+      "type": "object"
+    },
+    "commands": {
+      "type": "object"
+    },
+    "git_before": {
+      "type": "object"
+    },
+    "template_digest": {
+      "type": "string"
+    },
+    "digest": {
+      "type": "string"
+    },
+    "managed_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "before",
+          "after",
+          "content",
+          "diff"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "before": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "after": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "diff": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
