@@ -6,7 +6,7 @@ import globals from 'globals';
   { ignores: ['dist/**', '.next/**', 'node_modules/**', 'next-env.d.ts'] },
   js.configs.recommended,
 {% if ts %}  ...tseslint.configs.recommended,
-{% endif %}{% if c.profile.startswith('web.') %}  { plugins: { react }, rules: { 'react/jsx-uses-vars': 'error' } },
+{% endif %}{% if c.profile.startswith('web.') %}  { plugins: { react }, rules: { 'react/jsx-uses-vars': 'error', 'react/jsx-uses-react': 'error' } },
 {% endif %}  { files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'], languageOptions: {
     globals: { ...globals.node, ...globals.browser }, parserOptions: { ecmaFeatures: { jsx: true } }
   } },

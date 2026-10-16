@@ -1,3 +1,4 @@
-export default function App() {
+{% if not ts %}import React from 'react';
+{% endif %}export default function App() {
   return <main><h1>{{ c.name }}</h1><p>Development scaffold ready.</p></main>;
 }
