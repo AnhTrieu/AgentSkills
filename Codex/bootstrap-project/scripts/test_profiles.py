@@ -50,6 +50,8 @@ def main():
                     if rerun["operations"] or rerun["conflicts"]:
                         result["status"] = "failed"
                 reports.append({"profile": profile, "language": language, **result})
+                if result["status"] != "complete":
+                    print(json.dumps(result, indent=2), flush=True)
                 print(
                     json.dumps(
                         {
